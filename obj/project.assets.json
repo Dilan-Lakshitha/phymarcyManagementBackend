@@ -905,11 +905,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\study\\phymarcyManagement\\phymarcyManagement\\phymarcyManagement.csproj",
+      "projectUniqueName": "D:\\study\\anothrfolder\\phamarcy\\phymarcyManagement\\phymarcyManagement\\phymarcyManagement.csproj",
       "projectName": "phymarcyManagement",
-      "projectPath": "D:\\study\\phymarcyManagement\\phymarcyManagement\\phymarcyManagement.csproj",
+      "projectPath": "D:\\study\\anothrfolder\\phamarcy\\phymarcyManagement\\phymarcyManagement\\phymarcyManagement.csproj",
       "packagesPath": "C:\\Users\\dilan\\.nuget\\packages\\",
-      "outputPath": "D:\\study\\phymarcyManagement\\phymarcyManagement\\obj\\",
+      "outputPath": "D:\\study\\anothrfolder\\phamarcy\\phymarcyManagement\\phymarcyManagement\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\dilan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -978,7 +978,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.111/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.112/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
