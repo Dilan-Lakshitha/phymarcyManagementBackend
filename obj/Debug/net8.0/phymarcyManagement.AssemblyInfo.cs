@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("phymarcyManagement")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b77ea3cac53b85452d5f91c0d9df1db13798ea19")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+676cf4a8a18b3918b21a48d6c456b6604e9083a9")]
 [assembly: System.Reflection.AssemblyProductAttribute("phymarcyManagement")]
 [assembly: System.Reflection.AssemblyTitleAttribute("phymarcyManagement")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

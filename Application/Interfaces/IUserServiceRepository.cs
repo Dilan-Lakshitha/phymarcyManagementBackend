@@ -4,7 +4,7 @@ namespace phymarcyManagement.Application.Interfaces;
 
 public interface IUserServiceRepository
 {
-   Task RegisterUserAsync(string username, string email, string password);
+   Task RegisterUserAsync(string pharmacyusername, string email, string password);
    
-   Task<string> LoginUserAsync(string username, string password);
+   Task<string> LoginUserAsync(string pharmacyusername, string password);
 }

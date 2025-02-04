@@ -19,31 +19,31 @@ namespace phymarcyManagement.Application.Services
             _authService = authService;
         }
 
-        public async Task RegisterUserAsync(string Username,string email, string password)
+        public async Task RegisterUserAsync(string PharmacyName,string email, string password)
         {
             var hashPassword = _authService.HashPassword(password);
-            var user = new User
+            var pharmacyUser = new PharmacyUser
             {
-                Username = Username,
+                PharmacyName = PharmacyName,
                 Email = email,
                 Password = hashPassword
             };
 
-            await _userRepository.AddUserAsync(user);
+            await _userRepository.AddUserAsync(pharmacyUser);
         }
-        public async Task<string> LoginUserAsync(string Username,string password)
+        public async Task<string> LoginUserAsync(string PharmacyUser,string password)
         {
-            var user = await _userRepository.GetUserByUsernameAsync(Username);
+            var user = await _userRepository.GetUserByUsernameAsync(PharmacyUser);
             if (user == null)
             {
-                Console.WriteLine("User not found: " + Username);
+                Console.WriteLine("User not found: " + PharmacyUser);
                 throw new UnauthorizedAccessException("Invalid username");
             }
 
             // Verify password
             if (!_authService.VerifyPassword(password, user.Password))
             {
-                Console.WriteLine("Password mismatch for user: " + Username);
+                Console.WriteLine("Password mismatch for user: " + PharmacyUser);
                 throw new UnauthorizedAccessException("Invalid password.");
             }
 

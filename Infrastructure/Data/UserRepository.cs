@@ -13,19 +13,19 @@ namespace phymarcyManagement.Infrastructure.Data
             _context = context;
         }
 
-        public async Task<User> GetUserByUsernameAsync(string username)
+        public async Task<PharmacyUser> GetUserByUsernameAsync(string pharmacyUsername)
         {
-            var query = "SELECT * FROM public.user WHERE username = @username";
+            var query = "SELECT * FROM public.pharmacy WHERE pharmacyname = @pharmacyUsername";
             using var connection = _context.CreateConnection();
-            return await connection.QueryFirstOrDefaultAsync<User>(query, new { Username = username });
+            return await connection.QueryFirstOrDefaultAsync<PharmacyUser>(query, new { pharmacyUsername = pharmacyUsername });
         }
 
 
-        public async Task AddUserAsync(User user)
+        public async Task AddUserAsync(PharmacyUser pharmacyUser)
         {
-            var query = "INSERT INTO public.user (username , email, password) VALUES (@Username, @Email, @Password)";
+            var query = "INSERT INTO public.pharmacy (pharmacyname , email, password) VALUES (@PharmacyName, @Email, @Password)";
             using var connection = _context.CreateConnection();
-            await connection.ExecuteAsync(query, user);
+            await connection.ExecuteAsync(query, pharmacyUser);
         }
     }
 }

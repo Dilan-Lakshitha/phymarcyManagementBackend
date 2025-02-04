@@ -20,7 +20,7 @@ namespace phymarcyManagement.Infrastructure.Services
             return BCrypt.Net.BCrypt.Verify(password, hashedPassword);
         }
 
-        public string GenerateToken(User user)
+        public string GenerateToken(PharmacyUser user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes("uM8hGt47yQpLwD3cN5zTfR1vXsK9Ab2J");
@@ -29,7 +29,8 @@ namespace phymarcyManagement.Infrastructure.Services
             {
                 Subject = new ClaimsIdentity(new[]
                 {
-                    new Claim(ClaimTypes.Name, user.Username),
+                    new Claim("id", user.Id.ToString()),
+                    new Claim("PharmarcyName", user.PharmacyName),
                     new Claim(ClaimTypes.Email, user.Email)
                 }),
                 Expires = DateTime.UtcNow.AddHours(1),
