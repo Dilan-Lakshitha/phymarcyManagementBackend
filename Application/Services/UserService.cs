@@ -3,12 +3,13 @@ using phymarcyManagement.Application.Interfaces;
 using phymarcyManagement.Domain.Entities;
 using System;
 using System.Threading.Tasks;
+using phymarcyManagement.Models.DTOs;
 using IAuthenticationService = phymarcyManagement.Application.Interfaces.IAuthenticationService;
 
 
 namespace phymarcyManagement.Application.Services
 {
-    public class UserService : IUserServiceRepository
+    public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
         private readonly IAuthenticationService _authService;
@@ -19,31 +20,31 @@ namespace phymarcyManagement.Application.Services
             _authService = authService;
         }
 
-        public async Task RegisterUserAsync(string PharmacyName,string email, string password)
+        public async Task RegisterUserAsync(PharmacyRegisterRequest pharmacyRegisterRequest)
         {
-            var hashPassword = _authService.HashPassword(password);
+            var hashPassword = _authService.HashPassword(pharmacyRegisterRequest.Password);
             var pharmacyUser = new PharmacyUser
             {
-                PharmacyName = PharmacyName,
-                Email = email,
+                PharmacyName = pharmacyRegisterRequest.PharmacyName,
+                Email = pharmacyRegisterRequest.Email,
                 Password = hashPassword
             };
 
             await _userRepository.AddUserAsync(pharmacyUser);
         }
-        public async Task<string> LoginUserAsync(string PharmacyUser,string password)
+        public async Task<string> LoginUserAsync(LoginRequest loginRequest)
         {
-            var user = await _userRepository.GetUserByUsernameAsync(PharmacyUser);
+            var user = await _userRepository.GetUserByUsernameAsync(loginRequest.PharmarcyName);
             if (user == null)
             {
-                Console.WriteLine("User not found: " + PharmacyUser);
+                Console.WriteLine("User not found: " + loginRequest.PharmarcyName);
                 throw new UnauthorizedAccessException("Invalid username");
             }
 
             // Verify password
-            if (!_authService.VerifyPassword(password, user.Password))
+            if (!_authService.VerifyPassword(loginRequest.Password, user.Password))
             {
-                Console.WriteLine("Password mismatch for user: " + PharmacyUser);
+                Console.WriteLine("Password mismatch for user: " + loginRequest.PharmarcyName);
                 throw new UnauthorizedAccessException("Invalid password.");
             }
 

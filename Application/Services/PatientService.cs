@@ -1,9 +1,10 @@
 ﻿using phymarcyManagement.Application.Interfaces;
 using phymarcyManagement.Domain.Entities;
+using phymarcyManagement.Models.DTOs;
 
 namespace phymarcyManagement.Application.Services
 {
-    public class PatientService : IPatinetRepository
+    public class PatientService : IPatinetService
     {
         private readonly IPatinetRepository _patinetRepository;
         
@@ -12,15 +13,27 @@ namespace phymarcyManagement.Application.Services
             _patinetRepository = patinetRepository;
         }
         
-        public async Task AddPatinetAsync(Patinet patinet)
+        public async Task<Patinet?> AddPatinetDataAsync(PatinetRegister patinetRequest)
         {
+            var patinet = new Patinet
+            {
+                patinetName = patinetRequest.PatinetName,
+                patinetAge = patinetRequest.PatinetAge,
+                dateOfBirth = patinetRequest.DateOfBirth,
+            };
             
+            var addPatinet = await _patinetRepository.AddPatinetAsync(patinet);
+            
+            if (addPatinet == null)
+            {
+                return null;
+            }
+
+
+            var getPatinetDetails = await _patinetRepository.GetPatinetByPatinetAsync(addPatinet.patinetId);
+            
+            return getPatinetDetails; 
         }
         
-        public async Task GetPatinetByPatinetAsync(Patinet patinet)
-        {
-            
-        }
-
     }
 }

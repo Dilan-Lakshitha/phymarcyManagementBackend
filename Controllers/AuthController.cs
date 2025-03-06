@@ -12,9 +12,9 @@ namespace phymarcyManagement.Controllers
     [ApiController]
     public class AuthController : ControllerBase
     {
-        private readonly IUserServiceRepository _userService;
+        private readonly IUserService _userService;
 
-        public AuthController(IUserServiceRepository userService)
+        public AuthController(IUserService userService)
         {
             _userService = userService;
         }
@@ -22,14 +22,14 @@ namespace phymarcyManagement.Controllers
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] PharmacyRegisterRequest request)
         {
-            await _userService.RegisterUserAsync(request.PharmacyName, request.Email, request.Password);
+            await _userService.RegisterUserAsync(request);
             return Ok("User registered successfully.");
         }
 
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginRequest request)
         {
-            var token = await _userService.LoginUserAsync(request.PharmarcyName,request.Password);
+            var token = await _userService.LoginUserAsync(request);
             return Ok(new { Token = token });
         }
     }

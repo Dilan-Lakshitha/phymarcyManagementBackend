@@ -1,9 +1,9 @@
 ﻿namespace phymarcyManagement.Domain.Entities;
 
 public class Patinet
-{ 
-        public int Id { get; set; }
-        public string patientName { get; set; }
-        public string patientAge { get; set; }
-        public string dateOfBirth { get; set; }
+{
+        public int patinetId { get; set; }
+        public string patinetName { get; set; }
+        public int patinetAge { get; set; }
+        public DateTime dateOfBirth { get; set; }
 }

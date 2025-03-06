@@ -11,7 +11,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSingleton<DapperContext>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
-builder.Services.AddScoped<IUserServiceRepository,UserService>();
+builder.Services.AddScoped<IUserService,UserService>();
+builder.Services.AddScoped<IPatinetService, PatientService>();
+builder.Services.AddScoped<IPatinetRepository, PatinetRepository>();
 
 
 builder.Services.AddControllers();
