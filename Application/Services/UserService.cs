@@ -22,29 +22,30 @@ namespace phymarcyManagement.Application.Services
 
         public async Task RegisterUserAsync(PharmacyRegisterRequest pharmacyRegisterRequest)
         {
-            var hashPassword = _authService.HashPassword(pharmacyRegisterRequest.Password);
+            var hashPassword = _authService.HashPassword(pharmacyRegisterRequest.password);
             var pharmacyUser = new PharmacyUser
             {
-                PharmacyName = pharmacyRegisterRequest.PharmacyName,
-                Email = pharmacyRegisterRequest.Email,
-                Password = hashPassword
+                pharmacy_name = pharmacyRegisterRequest.Pharmacy_name,
+                pharmacy_email = pharmacyRegisterRequest.pharmacy_email,
+                password = hashPassword,
+                location = pharmacyRegisterRequest.location
             };
 
             await _userRepository.AddUserAsync(pharmacyUser);
         }
         public async Task<string> LoginUserAsync(LoginRequest loginRequest)
         {
-            var user = await _userRepository.GetUserByUsernameAsync(loginRequest.PharmarcyName);
+            var user = await _userRepository.GetUserByUsernameAsync(loginRequest.Pharmarcy_name);
             if (user == null)
             {
-                Console.WriteLine("User not found: " + loginRequest.PharmarcyName);
+                Console.WriteLine("User not found: " + loginRequest.Pharmarcy_name);
                 throw new UnauthorizedAccessException("Invalid username");
             }
 
             // Verify password
-            if (!_authService.VerifyPassword(loginRequest.Password, user.Password))
+            if (!_authService.VerifyPassword(loginRequest.Password, user.password))
             {
-                Console.WriteLine("Password mismatch for user: " + loginRequest.PharmarcyName);
+                Console.WriteLine("Password mismatch for user: " + loginRequest.Pharmarcy_name);
                 throw new UnauthorizedAccessException("Invalid password.");
             }
 

@@ -15,7 +15,7 @@ namespace phymarcyManagement.Infrastructure.Data
 
         public async Task<PharmacyUser> GetUserByUsernameAsync(string pharmacyUsername)
         {
-            var query = "SELECT * FROM public.pharmacy WHERE pharmacyname = @pharmacyUsername";
+            var query = "SELECT * FROM public.pharmacy WHERE pharmacy_name = @pharmacyUsername";
             using var connection = _context.CreateConnection();
             return await connection.QueryFirstOrDefaultAsync<PharmacyUser>(query, new { pharmacyUsername = pharmacyUsername });
         }
@@ -23,7 +23,7 @@ namespace phymarcyManagement.Infrastructure.Data
 
         public async Task AddUserAsync(PharmacyUser pharmacyUser)
         {
-            var query = "INSERT INTO public.pharmacy (pharmacyname , email, password) VALUES (@PharmacyName, @Email, @Password)";
+            var query = "INSERT INTO public.pharmacy (pharmacy_name , pharmacy_email, password , location) VALUES (@Pharmacy_name, @Pharmacy_email, @Password , @Location)";
             using var connection = _context.CreateConnection();
             await connection.ExecuteAsync(query, pharmacyUser);
         }

@@ -27,12 +27,11 @@ namespace phymarcyManagement.Infrastructure.Services
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(new[]
-                {
-                    new Claim("id", user.Id.ToString()),
-                    new Claim("PharmarcyName", user.PharmacyName),
-                    new Claim(ClaimTypes.Email, user.Email)
-                }),
+                Subject = new ClaimsIdentity([
+                    new Claim("id", user.pharmacy_id.ToString()),
+                    new Claim("PharmarcyName", user.pharmacy_name),
+                    new Claim(ClaimTypes.Email, user.pharmacy_email)
+                ]),
                 Expires = DateTime.UtcNow.AddHours(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };

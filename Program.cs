@@ -14,6 +14,11 @@ builder.Services.AddScoped<IAuthenticationService, AuthenticationService>();
 builder.Services.AddScoped<IUserService,UserService>();
 builder.Services.AddScoped<IPatinetService, PatientService>();
 builder.Services.AddScoped<IPatinetRepository, PatinetRepository>();
+builder.Services.AddScoped<ISupplierRepository, SupplierRepository>();
+builder.Services.AddScoped<ISupplierService, SupplierService>();
+builder.Services.AddScoped<IDrugRepository, DrugRepository>();
+builder.Services.AddScoped<IDrugService, DrugService>();
+
 
 
 builder.Services.AddControllers();

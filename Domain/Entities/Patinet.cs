@@ -2,8 +2,8 @@
 
 public class Patinet
 {
-        public int patinetId { get; set; }
-        public string patinetName { get; set; }
-        public int patinetAge { get; set; }
-        public DateTime dateOfBirth { get; set; }
+        public int customer_id { get; set; }
+        public string customer_name { get; set; }
+        public int customer_age { get; set; }
+        public int customer_contact { get; set; }
 }
