@@ -31,7 +31,7 @@ namespace phymarcyManagement.Infrastructure.Data
         {
             var query = @"
                 INSERT INTO drug (name, description, price, quantity, supplier_id)
-                VALUES (@Name, @Description, @Price, @Quantity, @SupplierId)
+                VALUES (@Name, @Description, @Price, @Quantity, @supplier_id)
                 RETURNING *;
             ";
             using var connection = _context.CreateConnection();
@@ -46,7 +46,7 @@ namespace phymarcyManagement.Infrastructure.Data
                     description = @Description,
                     price = @Price,
                     quantity = @Quantity,
-                    supplier_id = @SupplierId
+                    supplier_id = @supplier_id
                 WHERE drug_id = @DrugId
                 RETURNING *;
             ";
