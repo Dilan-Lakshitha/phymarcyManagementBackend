@@ -905,11 +905,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\study\\anothrfolder\\phamarcy\\phymarcyManagement\\phymarcyManagement\\phymarcyManagement.csproj",
+      "projectUniqueName": "D:\\course\\study\\anothrfolder\\phamarcy\\phymarcyManagement\\phymarcyManagement\\phymarcyManagement.csproj",
       "projectName": "phymarcyManagement",
-      "projectPath": "D:\\study\\anothrfolder\\phamarcy\\phymarcyManagement\\phymarcyManagement\\phymarcyManagement.csproj",
+      "projectPath": "D:\\course\\study\\anothrfolder\\phamarcy\\phymarcyManagement\\phymarcyManagement\\phymarcyManagement.csproj",
       "packagesPath": "C:\\Users\\laksh\\.nuget\\packages\\",
-      "outputPath": "D:\\study\\anothrfolder\\phamarcy\\phymarcyManagement\\phymarcyManagement\\obj\\",
+      "outputPath": "D:\\course\\study\\anothrfolder\\phamarcy\\phymarcyManagement\\phymarcyManagement\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\laksh\\AppData\\Roaming\\NuGet\\NuGet.Config"

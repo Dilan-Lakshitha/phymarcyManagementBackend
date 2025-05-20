@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DOoYJ3VKTO4=",
+  "dgSpecHash": "tUylgh7kV40=",
   "success": true,
-  "projectFilePath": "D:\\study\\anothrfolder\\phamarcy\\phymarcyManagement\\phymarcyManagement\\phymarcyManagement.csproj",
+  "projectFilePath": "D:\\course\\study\\anothrfolder\\phamarcy\\phymarcyManagement\\phymarcyManagement\\phymarcyManagement.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\laksh\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\laksh\\.nuget\\packages\\dapper\\2.1.35\\dapper.2.1.35.nupkg.sha512",

@@ -21,6 +21,10 @@ namespace phymarcyManagement.Application.Services
         {
             return await _invoiceRepo.GetInvoiceByIdAsync(invoiceId);
         }
-
+        
+        public async Task<IEnumerable<InvoiceDetailsDto>> GetLatestInvoicesAsync(int count)
+        {
+            return await _invoiceRepo.GetLatestInvoicesAsync(count);
+        }
     }   
 }

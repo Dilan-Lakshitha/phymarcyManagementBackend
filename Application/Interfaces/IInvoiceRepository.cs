@@ -7,5 +7,8 @@ namespace phymarcyManagement.Application.Interfaces
         Task<int> CreateInvoiceAsync(InvoiceDto invoiceDto);
         
         Task<InvoiceDetailsDto> GetInvoiceByIdAsync(int invoiceId);
+        
+        Task<IEnumerable<InvoiceDetailsDto>> GetLatestInvoicesAsync(int count);
+
     }   
 }

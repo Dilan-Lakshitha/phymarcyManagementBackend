@@ -7,4 +7,7 @@ public interface IInvoiceService
     Task<int> CreateInvoiceAsync(InvoiceDto dto);
     
     Task<InvoiceDetailsDto> GetInvoiceByIdAsync(int invoiceId);
+    
+    Task<IEnumerable<InvoiceDetailsDto>> GetLatestInvoicesAsync(int count);
+
 }

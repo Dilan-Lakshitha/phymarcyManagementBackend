@@ -44,6 +44,19 @@ namespace phymarcyManagement.Controllers
                 return BadRequest(new { error = ex.Message });
             }
         }
-
+        
+        [HttpGet("latest/{count}")]
+        public async Task<IActionResult> GetLatestInvoices(int count)
+        {
+            try
+            {
+                var invoices = await _invoiceService.GetLatestInvoicesAsync(count);
+                return Ok(invoices);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { error = ex.Message });
+            }
+        }
     }
 }

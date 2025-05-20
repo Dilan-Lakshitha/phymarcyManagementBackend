@@ -118,6 +118,25 @@ namespace phymarcyManagement.Infrastructure.Data
 
             return invoice;
         }
+        
+        public async Task<IEnumerable<InvoiceDetailsDto>> GetLatestInvoicesAsync(int count)
+        {
+            using var connection = _context.CreateConnection();
+
+            var query = @"
+        SELECT 
+            invoice_id AS InvoiceId,
+            customer_id AS CustomerId,
+            total_amount AS TotalAmount,
+            purchase_date AS PurchaseDate
+        FROM invoice
+        ORDER BY purchase_date DESC
+        LIMIT @Count
+    ";
+
+            return await connection.QueryAsync<InvoiceDetailsDto>(query, new { Count = count });
+        }
+
 
     }
 }
